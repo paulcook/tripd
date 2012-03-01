@@ -1,0 +1,28 @@
+<%= form_for(@leg), :remote=>true do |f| %>
+  <% if @leg.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@leg.errors.count, "error") %> prohibited this leg from being saved:</h2>
+
+      <ul>
+      <% @leg.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :location %><br />
+    <%= f.text_field :location %>
+    
+    <%= f.label :depart_arrive_type %><br />
+    <%= f.select :depart_arrive_type, ["Departure", "Arrival"] %>
+    
+    <%= f.label :depart_arrive %><br />
+    <%= f.datetime_select :depart_arrive %>
+    
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
