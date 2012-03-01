@@ -5,3 +5,16 @@ one:
 
 two:
   location: MyString
+
+texas:
+    location: Texas
+    depart_arrive: "Monday, March 5 2012"
+    depart_arrive_type: "depart"
+    details: "My trip to texas"
+    
+invalid: 
+    location: 
+    depart_arrive: "Monday, March 5 2012"
+    depart_arrive_type: "depart"
+    details: "IM INVALID"
+    
