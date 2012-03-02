@@ -18,3 +18,9 @@ invalid:
     depart_arrive_type: "depart"
     details: "IM INVALID"
     
+invalid_depart_arrive:
+    location: Kansas
+    depart_arrive: "Tuesday December 5 2020"
+    depart_arrive_type: "pizza"
+    details: "IM VERY INVALID"
+    
