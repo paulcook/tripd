@@ -11,15 +11,16 @@
     </div>
 <% end %>
   <div class="field">
-    <%= f.label :location %><br />
-    <%= f.text_field :location %>
+    <%= f.label :location, "Location:" %><br />
+    <%= f.text_field :location %><br />
     
-    <%= f.label :depart_arrive_type %><br />
-    <%= f.select :depart_arrive_type, ["Departure", "Arrival"] %>
+    <%= f.label :depart_arrive_type, "Departure or Arrival?" %><br />
+    <%= f.select :depart_arrive_type, ["Departure", "Arrival"] %><br />
     
-    <%= f.label :depart_arrive %><br />
-    <%= f.datetime_select :depart_arrive %>
-    
+    <%= f.label :depart_arrive, "Departure/Arrival Date:" %><br />
+    <%= f.datetime_select :depart_arrive %> <br />
+    <%= f.label :details, "Leg details:" %> <br />
+    <%= f.text_field :details %>
   </div>
   <div class="actions">
     <%= f.submit %>

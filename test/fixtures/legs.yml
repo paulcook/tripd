@@ -1,26 +1,36 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  location: MyString
+    location: MyString
+    depart_arrive_type: 'Departure'
+    depart_arrive: "Monday, March 5 2012"
 
 two:
-  location: MyString
+    location: MyString
+    depart_arrive_type: "Departure"
+    depart_arrive: "Monday, March 5 2012"
 
 texas:
     location: Texas
     depart_arrive: "Monday, March 5 2012"
-    depart_arrive_type: "depart"
+    depart_arrive_type: "Departure"
     details: "My trip to texas"
     
 invalid: 
     location: 
     depart_arrive: "Monday, March 5 2012"
-    depart_arrive_type: "depart"
+    depart_arrive_type: "Departure"
     details: "IM INVALID"
     
-invalid_depart_arrive:
+invalid_depart_arrive_type:
     location: Kansas
     depart_arrive: "Tuesday December 5 2020"
     depart_arrive_type: "pizza"
     details: "IM VERY INVALID"
+
+invalid_depart_arrive:
+    location: Kansas
+    depart_arrive: 
+    depart_arrive_type: "Arrival"
+    details: "My DATE IS INVALID"
     

@@ -5,6 +5,8 @@ class LegsControllerTest < ActionController::TestCase
     @leg = legs(:one)
     @texas = legs(:texas)
     @invalid = legs(:invalid)
+    @invalid_depart_arrive_type = legs(:invalid_depart_arrive_type)
+    @invalid_depart_arrive = legs(:invalid_depart_arrive)
   end
   test "should create a filled out leg"  do
     assert_difference('Leg.count', 1) do
@@ -22,7 +24,17 @@ class LegsControllerTest < ActionController::TestCase
          post :create, :leg => @invalid.attributes
       end
   end
-
+  test "it should not make a leg without a depart/arrival noted" do
+  	assert_no_difference('Leg.count') do
+         post :create, :leg => @invalid_depart_arrive_type.attributes
+      end
+  end
+  test "it should not make a leg without a date noted" do
+  	assert_no_difference('Leg.count') do
+         post :create, :leg => @invalid_depart_arrive.attributes
+      end
+  end
+  
   test "should get new" do
     get :new
     assert_response :success

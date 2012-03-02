@@ -3,14 +3,17 @@
 <table>
   <tr>
     <th>Location</th>
-    <th></th>
-    <th></th>
-    <th></th>
+    <th>Departure/Arrival</th>
+    <th>Departure/Arrival time</th>
+    <th>Details</th>
   </tr>
 
 <% @legs.each do |leg| %>
   <tr>
     <td><%= leg.location %></td>
+    <td><%= leg.depart_arrive_type %></td>
+    <td><%= leg.depart_arrive%></td>
+    <td><%= leg.details %></td>
     <td><%= link_to 'Show', leg %></td>
     <td><%= link_to 'Edit', edit_leg_path(leg) %></td>
     <td><%= link_to 'Destroy', leg, :confirm => 'Are you sure?', :method => :delete %></td>
