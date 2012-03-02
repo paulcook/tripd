@@ -1,4 +1,4 @@
-<%= form_for(@leg) :remote=>true do |f| %>
+<%= form_for @leg do |f| %>
   <% if @leg.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@leg.errors.count, "error") %> prohibited this leg from being saved:</h2>
@@ -9,18 +9,18 @@
       <% end %>
       </ul>
     </div>
-  <% end %>
-
+<% end %>
   <div class="field">
-    <%= f.label :location %><br />
-    <%= f.text_field :location %>
+    <%= f.label :location, "Location:" %><br />
+    <%= f.text_field :location %><br />
     
-    <%= f.label :depart_arrive_type %><br />
-    <%= f.select :depart_arrive_type, ["Departure", "Arrival"] %>
+    <%= f.label :depart_arrive_type, "Departure or Arrival?" %><br />
+    <%= f.select :depart_arrive_type, ["Departure", "Arrival"] %><br />
     
-    <%= f.label :depart_arrive %><br />
-    <%= f.datetime_select :depart_arrive %>
-    
+    <%= f.label :depart_arrive, "Departure/Arrival Date:" %><br />
+    <%= f.datetime_select :depart_arrive %> <br />
+    <%= f.label :details, "Leg details:" %> <br />
+    <%= f.text_field :details %>
   </div>
   <div class="actions">
     <%= f.submit %>
