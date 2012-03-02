@@ -1,15 +1,7 @@
 Tripd::Application.routes.draw do
   
-  get "trip/index"
 
-  get "trip/new"
-
-  get "trip/create"
-
-  get "trip/edit"
-
-  get "trip/update"
-
+  resources :trips
   resources :legs
 
   # The priority is based upon order of creation:

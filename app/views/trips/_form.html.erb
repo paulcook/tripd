@@ -1,0 +1,36 @@
+<%= form_for(@trip) do |f| %>
+  <% if @trip.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@leg.errors.count, "error") %> prohibited this leg from being saved:</h2>
+
+      <ul>
+      <% @leg.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name, :size=>30 %>
+  </div>
+  <%= f.fields_for :legs do |l| %>
+  <div class="field">
+    <%= l.label :location %><br />
+    <%= l.text_field :location %>
+   </div>
+    <div class="field"> 
+    <%= l.label :depart_arrive_type %><br />
+    <%= l.select :depart_arrive_type, ["Departure", "Arrival"] %>
+    
+   </div>
+   <div class="field"> 
+    <%= l.label :depart_arrive %><br />
+    <%= l.datetime_select :depart_arrive %>
+  </div>
+  <% end %>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
