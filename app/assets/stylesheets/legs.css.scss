@@ -2,6 +2,15 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+table {
+	background-color:#87CEEB;
+	font-size:1.5em;
+	font-family:Sans-serif;
+}
+table, th, td {
+        border: 2px solid white;	
+}
 .active {
-	background-color: #FF0080;
+	background-color:#FFFFFF;
+	font-weight:bold;
 }
