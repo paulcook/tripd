@@ -1,4 +1,4 @@
-<%= form_for(@trip) do |f| %>
+<%= nested_form_for @trip do |f| %>
   <% if @trip.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@trip.errors.count, "error") %> prohibited this trip from being saved:</h2>
@@ -12,12 +12,28 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :string %><br />
-    <%= f.text_field :string %>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
   </div>
   <div class="field">
-    <%= f.label :string %><br />
-    <%= f.text_field :string %>
+    <%= f.label :email %><br />
+    <%= f.text_field :email %>
+  </div>
+  <div class="field">
+  <%= f.fields_for :legs do |legs_form| %>
+  <%= legs_form.label :location, "Location:" %><br />
+  <%= legs_form.text_field :location %><br />
+  
+  <%= legs_form.label :depart_arrive_type, "Departure or Arrival?" %><br />
+  <%= legs_form.select :depart_arrive_type, ["Departure", "Arrival"] %><br />
+  
+  <%= legs_form.label :depart_arrive, "Departure/Arrival Date:" %><br />
+  <%= legs_form.datetime_select :depart_arrive %> <br />
+  <%= legs_form.label :details, "Leg details:" %> <br />
+  <%= legs_form.text_field :details %>
+    <%= legs_form.link_to_remove "Remove Leg" %>
+  <% end %>
+  <p><%= f.link_to_add "Add a Leg", :legs %></p>
   </div>
   <div class="actions">
     <%= f.submit %>

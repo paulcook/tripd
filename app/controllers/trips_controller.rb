@@ -1,7 +1,6 @@
 class TripsController < ApplicationController
   # GET /trips
   # GET /trips.json
-  accepts_nested_attributes_for :legs
   def index
     @trips = Trip.all
 

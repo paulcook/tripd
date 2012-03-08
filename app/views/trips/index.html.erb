@@ -2,8 +2,8 @@
 
 <table>
   <tr>
-    <th>String</th>
-    <th>String</th>
+    <th>Name</th>
+    <th>Email</th>
     <th></th>
     <th></th>
     <th></th>
@@ -11,8 +11,8 @@
 
 <% @trips.each do |trip| %>
   <tr>
-    <td><%= trip.string %></td>
-    <td><%= trip.string %></td>
+    <td><%= trip.name %></td>
+    <td><%= trip.email %></td>
     <td><%= link_to 'Show', trip %></td>
     <td><%= link_to 'Edit', edit_trip_path(trip) %></td>
     <td><%= link_to 'Destroy', trip, confirm: 'Are you sure?', method: :delete %></td>
