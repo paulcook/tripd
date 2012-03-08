@@ -1,7 +1,7 @@
 Tripd::Application.routes.draw do
   
-
   resources :trips
+
   resources :legs
 
   # The priority is based upon order of creation:

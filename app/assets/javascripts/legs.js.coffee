@@ -2,9 +2,12 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 $ ->
-  changeDiv = ->
+  trHighlight = ->
     $("table tr").removeClass 'active'
     $(@).addClass 'active'
+  notrHighlight = ->
+    $("table tr").removeClass 'active'
 
-  $("table tr").mouseenter changeDiv
+  $("table tr").mouseenter trHighlight
+  $('table').mouseleave notrHighlight 
 

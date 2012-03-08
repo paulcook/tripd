@@ -1,10 +1,10 @@
-<%= form_for(@trip) do |f| %>
+<%= nested_form_for @trip do |f| %>
   <% if @trip.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@leg.errors.count, "error") %> prohibited this leg from being saved:</h2>
+      <h2><%= pluralize(@trip.errors.count, "error") %> prohibited this trip from being saved:</h2>
 
       <ul>
-      <% @leg.errors.full_messages.each do |msg| %>
+      <% @trip.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
       </ul>
@@ -13,23 +13,28 @@
 
   <div class="field">
     <%= f.label :name %><br />
-    <%= f.text_field :name, :size=>30 %>
+    <%= f.text_field :name %>
   </div>
-  <%= f.fields_for :legs do |l| %>
   <div class="field">
-    <%= l.label :location %><br />
-    <%= l.text_field :location %>
-   </div>
-    <div class="field"> 
-    <%= l.label :depart_arrive_type %><br />
-    <%= l.select :depart_arrive_type, ["Departure", "Arrival"] %>
-    
-   </div>
-   <div class="field"> 
-    <%= l.label :depart_arrive %><br />
-    <%= l.datetime_select :depart_arrive %>
+    <%= f.label :email %><br />
+    <%= f.text_field :email %>
   </div>
+  <div class="field">
+  <%= f.fields_for :legs do |legs_form| %>
+  <%= legs_form.label :location, "Location:" %><br />
+  <%= legs_form.text_field :location %><br />
+  
+  <%= legs_form.label :depart_arrive_type, "Departure or Arrival?" %><br />
+  <%= legs_form.select :depart_arrive_type, ["Departure", "Arrival"] %><br />
+  
+  <%= legs_form.label :depart_arrive, "Departure/Arrival Date:" %><br />
+  <%= legs_form.datetime_select :depart_arrive %> <br />
+  <%= legs_form.label :details, "Leg details:" %> <br />
+  <%= legs_form.text_field :details %>
+    <%= legs_form.link_to_remove "Remove Leg" %>
   <% end %>
+  <p><%= f.link_to_add "Add a Leg", :legs %></p>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>
