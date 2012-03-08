@@ -1,8 +1,9 @@
 class CreateTrips < ActiveRecord::Migration
   def change
     create_table :trips do |t|
-      t.string :name
-      t.string :email
+      t.name :string
+      t.email :string
+
       t.timestamps
     end
   end

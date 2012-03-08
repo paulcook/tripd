@@ -5,6 +5,9 @@ $ ->
   trHighlight = ->
     $("table tr").removeClass 'active'
     $(@).addClass 'active'
+  notrHighlight = ->
+    $("table tr").removeClass 'active'
 
   $("table tr").mouseenter trHighlight
+  $('table').mouseleave notrHighlight 
 
