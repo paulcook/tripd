@@ -4,7 +4,6 @@ gem 'rails', '3.2.0'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
-
 gem 'sqlite3'
 
 gem 'json'
@@ -22,7 +21,7 @@ group :assets do
 end
 
 gem 'jquery-rails'
-gem "nested_form"
+gem "nested_form" , :git => "https://github.com/ryanb/nested_form.git"
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
